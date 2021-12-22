@@ -6,8 +6,6 @@ dir | sort-object -descending -property lastwritetime
 
 $PSVersionTable
 
-Get-Module -listavailable
-
 Get-Host
 $PSVersionTable
 $PSVersionTable.PSVersion
@@ -16,10 +14,18 @@ Dir
 Get-ChildItem
 Get-Alias Dir
 
+Get-Process
+Get-Process | format-list
+Get-Process | fl
 
-Write-Output "Hello"
-$name = "Kyle"
-Write-Output $name
+Get-Module
+Get-Module -listavailable
+Get-Command -Module Az.Compute
+Get-Command -Module Az.Compute | Select-Object -Unique Noun
+(Get-Module Az.Compute).Version
+
+Get-Help Dir
+
 
 
 
