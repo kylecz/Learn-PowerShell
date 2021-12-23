@@ -1,4 +1,4 @@
-#### Module 1
+#### Module 1 - Fundamentals
 
 dir | sort-object
 dir | sort-object -descending
@@ -25,6 +25,28 @@ Get-Command -Module Az.Compute | Select-Object -Unique Noun
 (Get-Module Az.Compute).Version
 
 Get-Help Dir
+
+#### Module 2 - Connect Commands
+
+Get-Process a*
+Get-Service a*
+Get-Process a*; Get-Service a*
+
+Get-Process a* | Get-Member
+
+notepad
+Get-Process
+Get-Process | Where-Object{$_.name -eq "notepad"}
+Get-Process | where-object {$_.name -eq "notepad"} | Get-Member
+
+Notepad
+(Get-process | where-object {$_.name -eq "notepad"})
+(Get-process | where-object {$_.name -eq "notepad"}).kill
+(Get-process | where-object {$_.name -eq "notepad"}).kill()
+
+
+
+
 
 
 
