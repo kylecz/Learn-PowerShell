@@ -44,13 +44,40 @@ Notepad
 (Get-process | where-object {$_.name -eq "notepad"}).kill
 (Get-process | where-object {$_.name -eq "notepad"}).kill()
 
+Notepad
+Notepad
+Get-Process | Sort-Object -Property name | where-object {$_.name -eq "notepad"}
+Get-Process -Name notepad | Sort-Object -Property id
 
+ipconfig | Get-Member
 
+$var1 = "world"
+Write-Output "hello $var1"
+$procs = Get-Process
+$procs
+$procs[0]
+$procs[0] | Get-Member
 
+Get-Process | Select-Object -property name, @{name= 'procid'; expression={$_.id}}
 
+Notepad
+Get-Process -name notepad
+Get-Process -name notepad | Get-Member
+Get-Help Stop-Process -full
+Get-Process -name notepad | Stop-Process
 
+Get-Process | where-object {$_.handles -gt 1000}
+Get-Process | where handles -gt 1000
+Get-Process | where handles -gt 1000 | Sort-Object -Property Handles | ft name, handles -AutoSize
 
+$procs = Get-Process | where handles -gt 1000
+$procs
 
+Get-Process | Out-Default
+Get-Process | Out-Host
+Get-Process | Out-Printer
+Get-Process | Out-GridView
+Get-Process | Out-GridView -PassThru | Stop-Process
 
 
 
