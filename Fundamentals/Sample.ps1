@@ -79,5 +79,38 @@ Get-Process | Out-Printer
 Get-Process | Out-GridView
 Get-Process | Out-GridView -PassThru | Stop-Process
 
+Get-Process > proc.txt
+Notepad proc.txt
+del .\proc.txt
 
+Get-Process | Out-File process.txt
+Get-Content .\process.txt
 
+Get-Process
+Get-Process | ft
+Get-Process | fl
+
+Get-Process | Export-csv cassy.csv
+Cat .\cassy.csv
+.\cassy.csv
+
+$cassydata = import-csv .\cassy.csv
+$cassydata
+$cassydata | gm
+
+Get-process | export-clixml val.xml
+$procs = import-clixml .\val.xml 
+$procs
+$procs | gm
+
+Get-Process | Measure-Object
+Get-Process | Measure-Object WS -sum -Maximum -Minimum -Average
+Get-Process | Sort-Object -Property WorkingSet
+Get-Process | Sort WS -descending
+Get-Process | Sort WS -descending | select -first 5
+
+notepad
+$procs = Get-Process
+# close notepad that's running
+$procs2 = Get-Process
+Compare-Object -ReferenceObject $procs -DifferenceObject $procs2 -Property Name
