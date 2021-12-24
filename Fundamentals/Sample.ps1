@@ -114,3 +114,23 @@ $procs = Get-Process
 # close notepad that's running
 $procs2 = Get-Process
 Compare-Object -ReferenceObject $procs -DifferenceObject $procs2 -Property Name
+
+Notepad
+Get-Process -Name notepad
+Get-Process -Name notepad | Stop-Process
+Get-Process | gm
+Get-Help Get-Process -full
+
+$confirmpreference
+
+notepad
+Get-process -Name notepad
+# or Get-Process | where {$_.name -eq "notepad"}
+Get-process -Name notepad | Stop-Process
+Notepad
+$confirmpreference = "medium"
+Get-process -Name notepad | Stop-Process
+
+Get-Service | where {$_.status -eq "stopped"}
+
+
